@@ -104,7 +104,7 @@ public class TestCases {
         // Click Sign In
         driver.findElement(By.xpath("//button[contains(text(),'Sign in')]")).click();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//span[text() = \"Who's viewed your profile\"]/../../following-sibling::div//strong")));
 
@@ -146,7 +146,7 @@ public class TestCases {
         System.out.println("end Test case: testCase03");
     }
 
-    
+    //Google Name links
     public void testCase04() throws InterruptedException {
         System.out.println("Start Test case: testCase04");
         
@@ -176,21 +176,28 @@ public class TestCases {
         
         System.out.println("Start Test case: testCase05");
 
+        //Navigate to https://in.bookmyshow.com/explore/home/chennai
         driver.get("https://in.bookmyshow.com/explore/home/chennai");
 
+        //Find the image URLs for all the Recommended Movies
         List<WebElement> hyperLinks = driver
                 .findElements(By.xpath("//h2[text() = 'Recommended Movies']/../../../following-sibling::div//img"));
 
+        //Print the URLs
         for (WebElement element : hyperLinks) {
             System.out.println(element.getAttribute("src"));
         }
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(120));
+        //Wait for the Premiere section to load
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
                 By.xpath("//h2[text()='Premieres']/../../../following-sibling::div//a[2]/div/div[3]/div/div")));
+        
+        //Navigate to the Premiere and find the name and language of the 2nd item
         List<WebElement> nameLang = driver.findElements(
                 By.xpath("//h2[text()='Premieres']/../../../following-sibling::div//a[2]/div/div[3]/div/div"));
 
+        //Print the name and language of the 2nd item
         for (WebElement element : nameLang) {
             System.out.println(element.getText());
         }

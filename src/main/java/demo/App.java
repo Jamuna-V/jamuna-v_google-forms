@@ -30,9 +30,17 @@ public class App {
         // search.testCase01();
         // search.endTest();
 
-        CountHyperlinks link = new CountHyperlinks();
-        link.testCase01();
-        link.endTest();
+        // CountHyperlinks link = new CountHyperlinks();
+        // link.testCase01();
+        // link.endTest();
+
+        // PostOnLinkedin post = new PostOnLinkedin();
+        // post.testCase01();
+        // post.endTest();
+
+        ImageUrlsBookMyShow url = new ImageUrlsBookMyShow();
+        url.testCase01();
+        url.endTest();
 
     }
 
