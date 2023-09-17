@@ -57,7 +57,7 @@ public class ImageUrlsBookMyShow {
             //Scroll through the page for the content to load
             for(int i=0; i<10; i++) {
                 js.executeScript("window.scrollBy(0, 300);");
-                Thread.sleep(60000);
+                Thread.sleep(3000);
             }
 
             //Locate the Premiere section

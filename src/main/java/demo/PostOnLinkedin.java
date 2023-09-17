@@ -45,7 +45,7 @@ public class PostOnLinkedin {
 
 
         Actions action = new Actions(driver);
-        action.sendKeys(userName, "vjamunacse@gmail.com").sendKeys(Keys.TAB).sendKeys(password, "Mithra@2016")
+        action.sendKeys(userName, "username").sendKeys(Keys.TAB).sendKeys(password, "password")
                 .perform();
 
         //Click Sign In

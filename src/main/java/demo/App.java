@@ -34,13 +34,13 @@ public class App {
         // link.testCase01();
         // link.endTest();
 
-        // PostOnLinkedin post = new PostOnLinkedin();
-        // post.testCase01();
-        // post.endTest();
+        PostOnLinkedin post = new PostOnLinkedin();
+        post.testCase01();
+        post.endTest();
 
-        ImageUrlsBookMyShow url = new ImageUrlsBookMyShow();
-        url.testCase01();
-        url.endTest();
+        // ImageUrlsBookMyShow url = new ImageUrlsBookMyShow();
+        // url.testCase01();
+        // url.endTest();
 
     }
 
