@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -52,20 +53,15 @@ public class ImageUrlsBookMyShow {
 
             JavascriptExecutor js = (JavascriptExecutor)driver;
 
-            
-
             //Scroll through the page for the content to load
             for(int i=0; i<10; i++) {
                 js.executeScript("window.scrollBy(0, 300);");
                 Thread.sleep(3000);
             }
 
-            //Locate the Premiere section
-            WebElement premiere = driver.findElement(By.xpath("//img[@alt = 'Tvod Offer']"));
-
             //Scroll to the Premiere section
-            js.executeScript("arguments[0].scrollIntoView();", premiere);
-
+            js.executeScript("arguments[0].scrollIntoView();",driver.findElement(By.xpath("//img[@alt = 'Tvod Offer']")));
+            
             //Wait till the content of the 2nd item under Premiere section is loaded
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//h2[text()='Premieres']/../../../following-sibling::div//a[2]/div/div[3]/div/div")));

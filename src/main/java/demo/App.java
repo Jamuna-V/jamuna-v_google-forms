@@ -34,13 +34,25 @@ public class App {
         // link.testCase01();
         // link.endTest();
 
-        PostOnLinkedin post = new PostOnLinkedin();
-        post.testCase01();
-        post.endTest();
+        // PostOnLinkedin post = new PostOnLinkedin();
+        // post.testCase01();
+        // post.endTest();
 
         // ImageUrlsBookMyShow url = new ImageUrlsBookMyShow();
         // url.testCase01();
         // url.endTest();
+
+        // WindowHandle windows = new WindowHandle();
+        // windows.testCase01();
+        // windows.endTest();
+
+        // ImdbRatings movieDetails = new ImdbRatings();
+        // movieDetails.testCase01();
+        // movieDetails.endTest();
+
+        NestedFramesText textInFrames = new NestedFramesText();
+        textInFrames.testCase01();
+        textInFrames.endTest();
 
     }
 
