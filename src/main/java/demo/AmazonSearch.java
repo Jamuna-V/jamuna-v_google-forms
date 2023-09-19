@@ -36,22 +36,22 @@ public class AmazonSearch
     public void testCase01() {
         System.out.println("Start Test case: testCase01");
 
-        //Enter the url https://www.google.com/
+        //Enter the url https://www.google.com/  driver.get("https://www.google.com/")
         driver.get("https://www.google.com");
 
-        //Locate the search bar
+        //Locate the search bar Using Locator "ID"  APjFqb
         WebElement searchBar = driver.findElement(By.id("APjFqb"));
 
-        //Enter the search keyword "Amazon" and Press Enter
+        //Enter the search keyword "Amazon" and hit enter  sendKeys("Amazon") | sendKeys(Keys.ENTER)
         Actions action = new Actions(driver);
         action.sendKeys(searchBar, "Amazon").sendKeys(Keys.ENTER).perform();
 
-        //Wait for the search results to be displayed
+        //Wait for the search results to be displayed  5000ms
         WebDriverWait waitSearchResult = new WebDriverWait(driver, Duration.ofMillis(5000));
         waitSearchResult.until(ExpectedConditions.presenceOfElementLocated(
                 By.xpath("//a[contains(@href,'amazon.in') or contains(@href,'amazon.com')]")));
         
-        //Verify if Amazon.in or Amazon.com is returned in search results
+        //Verify if Amazon.in or Amazon.com is returned in search results Using Locator "XPath" //a[contains(@href,"amazon.in) or contains(@href,"amazon.com) ] | isDisplayed()
         boolean status = driver
                 .findElement(By.xpath("//a[contains(@href,'amazon.in') or contains(@href,'amazon.com')]"))
                 .isDisplayed();

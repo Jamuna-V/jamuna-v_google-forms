@@ -31,14 +31,14 @@ public class CountHyperlinks
     public void testCase01() {
         System.out.println("Start Test case: testCase01");
 
-        //Navigate to https://in.bookmyshow.com/explore/home/chennai
+        //Navigate to https://in.bookmyshow.com/explore/home/chennai  driver.get("https://in.bookmyshow.com/explore/home/chennai")
         driver.get("https://in.bookmyshow.com/explore/home/chennai");
 
-        //Count all the hyperlinks present in the page
+        //Count all the hyperlinks present in the page Using Locator "Tag Name" a
         List<WebElement> hyperLinks = driver.findElements(By.tagName("a"));
         int count = hyperLinks.size();
 
-        //Print the count of hyperlinks
+        //Print the count of hyperlinks  
         System.out.println("Number of hyperlinks on the home page " + count);
 
         System.out.println("end Test case: testCase01");
