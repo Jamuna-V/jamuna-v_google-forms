@@ -22,7 +22,6 @@ public class PostImageOrVideoOnLinkedin {
         WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
 
     public void endTest() {
