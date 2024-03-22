@@ -22,7 +22,6 @@ public class AmazonSearch
         WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
     }
 
     public void endTest() {
