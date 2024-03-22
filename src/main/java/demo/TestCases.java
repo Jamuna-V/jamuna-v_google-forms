@@ -33,7 +33,6 @@ public class TestCases {
         WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-
     }
 
     public void endTest() {
