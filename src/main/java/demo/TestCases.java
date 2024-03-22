@@ -8,8 +8,6 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import javax.imageio.ImageIO;
-import javax.swing.Action;
-
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
@@ -19,16 +17,10 @@ import org.openqa.selenium.interactions.Actions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-import org.apache.hc.core5.util.Asserts;
 import org.openqa.selenium.By;
 //Selenium Imports
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WindowType;
-import org.openqa.selenium.remote.Browser;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -38,10 +30,10 @@ public class TestCases {
 
     public TestCases() {
         System.out.println("Constructor: TestCases");
-        WebDriverManager.chromedriver().timeout(30).setup();
+        WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
 
     }
 
@@ -316,7 +308,7 @@ public class TestCases {
         System.out.println("end Test case: testCase08");
     }
 
-    ////Imdb_ratings
+    //Imdb_ratings
     public void testCase09() {
         System.out.println("Start Test case: testCase09");
         

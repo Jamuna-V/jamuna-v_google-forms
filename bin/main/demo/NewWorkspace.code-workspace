@@ -1,0 +1,73 @@
+{
+	"folders": [
+		{
+			"path": "../../../.."
+		},
+		{
+			"path": "../../../../../Generic"
+		},
+		{
+			"path": "../../../../../BIProject"
+		},
+		{
+			"path": "../../../../../QTRIP_QA_V2"
+		},
+		{
+			"path": "../../../../../QKART_QA_V2"
+		},
+		{
+			"path": "../../../../../QTRIP_API_TESTING_PROJECT"
+		},
+		{
+			"name": "Selenium_web_actions",
+			"path": "../../../../../Selenium_web_actions"
+		},
+		{
+			"path": "../../../../../Selenium_web_actions_calendar"
+		},
+		{
+			"path": "../../../../../Selenium_web_actions_checkbox"
+		},
+		{
+			"path": "../../../../../Selenium_web_actions_hyperlink"
+		},
+		{
+			"path": "../../../../../Selenium_web_actions_web_tables"
+		},
+		{
+			"path": "../../../../../Selenium_web_actions_window_handling"
+		},
+		{
+			"name": "Selenium_wrapper_methods",
+			"path": "../../../../../Selenium_wrapper_methods"
+		},
+		{
+			"name": "XPath_advanced",
+			"path": "../../../../../XPath_advanced"
+		},
+		{
+			"name": "Rest_assured",
+			"path": "../../../../../Rest_assured"
+		},
+		{
+			"path": "../../../../../Selenium_web_actions_dropdown"
+		},
+		{
+			"path": "../../../../../Selenium_web_actions_button"
+		},
+		{
+			"path": "../../../../../Selenium_screenshots"
+		},
+		{
+			"path": "../../../../../Selenium_mouse_keyboard_actions"
+		}
+	],
+	"settings": {
+		"java.debug.settings.onBuildFailureProceed": true,
+		"java.debug.settings.showQualifiedNames": false,
+		"java.debug.settings.showStaticVariables": true,
+		"java.debug.settings.showHex": false,
+		"java.configuration.updateBuildConfiguration": "automatic",
+		"java.compile.nullAnalysis.mode": "automatic"
+	}
+}

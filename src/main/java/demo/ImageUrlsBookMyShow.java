@@ -19,7 +19,7 @@ public class ImageUrlsBookMyShow {
     public ImageUrlsBookMyShow()
     {
         System.out.println("Constructor: TestCases");
-        WebDriverManager.chromedriver().timeout(30).setup();
+        WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(30));
@@ -39,9 +39,9 @@ public class ImageUrlsBookMyShow {
         //Navigate to https://in.bookmyshow.com/explore/home/chennai  driver.get("https://in.bookmyshow.com/explore/home/chennai")
         driver.get("https://in.bookmyshow.com/explore/home/chennai");
 
-        //Find the image URLs for all the “Recommended Movies”  Using Locator "XPath" //h2[text() = 'Recommended Movies']/../../../following-sibling::div//img
+        //Find the image URLs for all the "Recommended Movies"  Using Locator "XPath" //h2[text() = 'Recommended Movies']/../../../following-sibling::div//img
         List<WebElement> hyperLinks = driver
-                .findElements(By.xpath("//h2[text() = 'Recommended Movies']/../../../following-sibling::div//img"));
+                .findElements(By.xpath("//div[contains(@class,'sxtbF')]//img"));
 
         //Print the URLs  getAttribute("src")
         for (WebElement element : hyperLinks) {

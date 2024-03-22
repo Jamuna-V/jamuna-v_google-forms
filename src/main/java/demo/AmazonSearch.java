@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import net.bytebuddy.asm.Advice.Enter;
 
 public class AmazonSearch
 {
@@ -20,10 +19,10 @@ public class AmazonSearch
     public AmazonSearch()
     {
         System.out.println("Constructor: TestCases");
-        WebDriverManager.chromedriver().timeout(30).setup();
+        WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(30));
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
     }
 
     public void endTest() {
@@ -48,13 +47,11 @@ public class AmazonSearch
 
         //Wait for the search results to be displayed  5000ms
         WebDriverWait waitSearchResult = new WebDriverWait(driver, Duration.ofMillis(5000));
-        waitSearchResult.until(ExpectedConditions.presenceOfElementLocated(
+        WebElement searchResult = waitSearchResult.until(ExpectedConditions.presenceOfElementLocated(
                 By.xpath("//a[contains(@href,'amazon.in') or contains(@href,'amazon.com')]")));
         
         //Verify if Amazon.in or Amazon.com is returned in search results Using Locator "XPath" //a[contains(@href,"amazon.in) or contains(@href,"amazon.com) ] | isDisplayed()
-        boolean status = driver
-                .findElement(By.xpath("//a[contains(@href,'amazon.in') or contains(@href,'amazon.com')]"))
-                .isDisplayed();
+        boolean status = searchResult.isDisplayed();
                 
         System.out.println("Amazon returned in search results " + status);
 

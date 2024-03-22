@@ -19,7 +19,7 @@ public class PostImageOrVideoOnLinkedin {
     public PostImageOrVideoOnLinkedin()
     {
         System.out.println("Constructor: TestCases");
-        WebDriverManager.chromedriver().timeout(30).setup();
+        WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
@@ -50,10 +50,10 @@ public class PostImageOrVideoOnLinkedin {
         //Wait for the page to load  10000
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//span[text() = \"Who's viewed your profile\"]/../../following-sibling::div//strong")));
+                By.xpath("//span[contains(@class,'feed-identity-widget-item')]")));
 
         //Click the Start a post button Using Locator "XPath" //span[text() = 'Start a post']/../parent::button
-        driver.findElement(By.xpath("//span[text() = 'Start a post']/../parent::button")).click();
+        driver.findElement(By.xpath("//div[@class='share-box-feed-entry__top-bar']/button")).click();
 
         //Wait for the popup to appear  10000
         wait.until(ExpectedConditions

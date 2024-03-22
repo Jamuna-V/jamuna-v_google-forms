@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -20,7 +19,7 @@ public class ImdbRatings {
     public ImdbRatings()
     {
         System.out.println("Constructor: TestCases");
-        WebDriverManager.chromedriver().timeout(30).setup();
+        WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(30));
@@ -67,7 +66,7 @@ public class ImdbRatings {
         //Wait for the sorting to happen  wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@data-testid = 'chart-layout-main-column']/ul/li[1]//h3")));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@data-testid = 'chart-layout-main-column']/ul/li[1]//h3")));
-
+        
         //Find the oldest movie Using Locator "XPath" //div[@data-testid = 'chart-layout-main-column']/ul/li[1]//h3
         WebElement oldestMovie = driver.findElement(By.xpath("//div[@data-testid = 'chart-layout-main-column']/ul/li[1]//h3"));
 
@@ -84,7 +83,7 @@ public class ImdbRatings {
         sort.selectByVisibleText("Number of ratings");
 
         //Wait for the sorting to happen  wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@data-testid = 'chart-layout-main-column']/ul/li[1]//h3")));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@data-testid = 'chart-layout-main-column']/ul/li[1]//h3")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-testid = 'chart-layout-main-column']/ul/li[1]//h3")));
 
         //Find the movie with the most user ratings which is listed on the top of the table Using Locator "XPath" //div[@data-testid = 'chart-layout-main-column']/ul/li[1]//h3
         WebElement mostUserRatings = driver

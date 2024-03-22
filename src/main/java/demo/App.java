@@ -26,9 +26,9 @@ public class App {
 
         //tests.endTest(); // End your test by clearning connections and closing browser
 
-        AmazonSearch search = new AmazonSearch();
-        search.testCase01();
-        search.endTest();
+        // AmazonSearch search = new AmazonSearch();
+        // search.testCase01();
+        // search.endTest();
 
         // CountHyperlinks link = new CountHyperlinks();
         // link.testCase01();
@@ -57,6 +57,10 @@ public class App {
         // PostImageOrVideoOnLinkedin postImage = new PostImageOrVideoOnLinkedin();
         // postImage.testCase01();
         // postImage.endTest();
+
+        PlayStore play = new PlayStore();
+        play.testCase01();
+        play.endTest();
 
     }
 
