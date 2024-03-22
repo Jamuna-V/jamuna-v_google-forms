@@ -26,7 +26,6 @@ public class WindowHandle {
         WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(30));
     }
 
     public void endTest() {
