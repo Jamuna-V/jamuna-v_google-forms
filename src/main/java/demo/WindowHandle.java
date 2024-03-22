@@ -26,7 +26,6 @@ public class WindowHandle {
         WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(30));
     }
 
     public void endTest() {
@@ -109,7 +108,7 @@ public class WindowHandle {
 }
 /*
  * mkdirs() method, which creates all necessary parent directories if they do
- * not exist, 
+ * not exist,
  * 
  * mkdir() creates only the directory specified by the abstract
  * pathname.

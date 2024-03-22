@@ -13,69 +13,73 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class ImageUrlsBookMyShow {
-    
+
     ChromeDriver driver;
 
-    public ImageUrlsBookMyShow()
-    {
+    public ImageUrlsBookMyShow() {
         System.out.println("Constructor: TestCases");
         WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(30));
     }
 
     public void endTest() {
         System.out.println("End Test: TestCases");
         driver.close();
         driver.quit();
-
     }
 
-    public void testCase01(){
-        
+    public void testCase01() {
+
         System.out.println("Start Test case: testCase01");
 
-        //Navigate to https://in.bookmyshow.com/explore/home/chennai  driver.get("https://in.bookmyshow.com/explore/home/chennai")
+        // Navigate to https://in.bookmyshow.com/explore/home/chennai
+        // driver.get("https://in.bookmyshow.com/explore/home/chennai")
         driver.get("https://in.bookmyshow.com/explore/home/chennai");
 
-        //Find the image URLs for all the "Recommended Movies"  Using Locator "XPath" //h2[text() = 'Recommended Movies']/../../../following-sibling::div//img
+        // Find the image URLs for all the "Recommended Movies" Using Locator "XPath"
+        // //h2[text() = 'Recommended Movies']/../../../following-sibling::div//img
         List<WebElement> hyperLinks = driver
                 .findElements(By.xpath("//div[contains(@class,'sxtbF')]//img"));
 
-        //Print the URLs  getAttribute("src")
+        // Print the URLs getAttribute("src")
         for (WebElement element : hyperLinks) {
             System.out.println(element.getAttribute("src"));
         }
 
-        try{
+        try {
 
-            JavascriptExecutor js = (JavascriptExecutor)driver;
+            JavascriptExecutor js = (JavascriptExecutor) driver;
 
-            //Scroll through the page for the content to load
-            for(int i=0; i<10; i++) {
+            // Scroll through the page for the content to load
+            for (int i = 0; i < 10; i++) {
                 js.executeScript("window.scrollBy(0, 300);");
                 Thread.sleep(3000);
             }
 
-            //Scroll to the Premiere section  js.executeScript("arguments[0].scrollIntoView();",driver.findElement(By.xpath("//img[@alt = 'Tvod Offer']")));
-            js.executeScript("arguments[0].scrollIntoView();",driver.findElement(By.xpath("//img[@alt = 'Tvod Offer']")));
-            
-            //Wait till the content of the 2nd item under Premiere section is loaded  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//h2[text()='Premieres']/../../../following-sibling::div//a[2]/div/div[3]/div/div")));
+            // Scroll to the Premiere section
+            // js.executeScript("arguments[0].scrollIntoView();",driver.findElement(By.xpath("//img[@alt
+            // = 'Tvod Offer']")));
+            js.executeScript("arguments[0].scrollIntoView();",
+                    driver.findElement(By.xpath("//img[@alt = 'Tvod Offer']")));
+
+            // Wait till the content of the 2nd item under Premiere section is loaded
+            // wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//h2[text()='Premieres']/../../../following-sibling::div//a[2]/div/div[3]/div/div")));
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//h2[text()='Premieres']/../../../following-sibling::div//a[2]/div/div[3]/div/div")));
-            
-            //Find the name and language of the 2nd item in the Premiere section Using Locator "XPath" //h2[text()='Premieres']/../../../following-sibling::div//a[2]/div/div[3]/div/div
+            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                    By.xpath("//h2[text()='Premieres']/../../../following-sibling::div//a[2]/div/div[3]/div/div")));
+
+            // Find the name and language of the 2nd item in the Premiere section Using
+            // Locator "XPath"
+            // //h2[text()='Premieres']/../../../following-sibling::div//a[2]/div/div[3]/div/div
             List<WebElement> nameLang = driver.findElements(
                     By.xpath("//h2[text()='Premieres']/../../../following-sibling::div//a[2]/div/div[3]/div/div"));
 
-            //Print the name and language of the 2nd item in the Premiere section  getText()
+            // Print the name and language of the 2nd item in the Premiere section getText()
             for (WebElement element : nameLang) {
                 System.out.println(element.getText());
             }
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

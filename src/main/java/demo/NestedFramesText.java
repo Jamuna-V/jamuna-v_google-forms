@@ -17,14 +17,12 @@ public class NestedFramesText {
         WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(30));
     }
 
     public void endTest() {
         System.out.println("End Test: TestCases");
         driver.close();
         driver.quit();
-
     }
 
     public void testCase01() {

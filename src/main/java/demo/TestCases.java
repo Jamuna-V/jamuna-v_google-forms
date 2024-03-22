@@ -33,18 +33,15 @@ public class TestCases {
         WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
-
     }
 
     public void endTest() {
         System.out.println("End Test: TestCases");
         driver.close();
         driver.quit();
-
     }
 
-    //Activity 1 : Search for Amazon in Google
+    // Activity 1 : Search for Amazon in Google
     public void testCase01() {
         System.out.println("Start Test case: testCase01");
 
@@ -65,10 +62,10 @@ public class TestCases {
         System.out.println("end Test case: testCase01");
     }
 
-    //Activity 2 : Count hyperlinks in Bookmyshow
+    // Activity 2 : Count hyperlinks in Bookmyshow
     public void testCase02() {
         System.out.println("Start Test case: testCase02");
-        
+
         driver.get("https://in.bookmyshow.com/explore/home/chennai");
 
         List<WebElement> hyperLinks = driver.findElements(By.tagName("a"));
@@ -79,10 +76,10 @@ public class TestCases {
         System.out.println("end Test case: testCase02");
     }
 
-    //Activity 3 : Post on linkedin
+    // Activity 3 : Post on linkedin
     public void testCase03() {
         System.out.println("Start Test case: testCase03");
-        
+
         driver.get("https://in.linkedin.com/ ");
 
         // Enter username and password
@@ -138,10 +135,10 @@ public class TestCases {
         System.out.println("end Test case: testCase03");
     }
 
-    //Google Name links
+    // Google Name links
     public void testCase04() throws InterruptedException {
         System.out.println("Start Test case: testCase04");
-        
+
         int count = 0;
         driver.get("https://www.google.com");
 
@@ -165,31 +162,31 @@ public class TestCases {
     }
 
     public void testCase05() throws InterruptedException {
-        
+
         System.out.println("Start Test case: testCase05");
 
-        //Navigate to https://in.bookmyshow.com/explore/home/chennai
+        // Navigate to https://in.bookmyshow.com/explore/home/chennai
         driver.get("https://in.bookmyshow.com/explore/home/chennai");
 
-        //Find the image URLs for all the Recommended Movies
+        // Find the image URLs for all the Recommended Movies
         List<WebElement> hyperLinks = driver
                 .findElements(By.xpath("//h2[text() = 'Recommended Movies']/../../../following-sibling::div//img"));
 
-        //Print the URLs
+        // Print the URLs
         for (WebElement element : hyperLinks) {
             System.out.println(element.getAttribute("src"));
         }
 
-        //Wait for the Premiere section to load
+        // Wait for the Premiere section to load
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
                 By.xpath("//h2[text()='Premieres']/../../../following-sibling::div//a[2]/div/div[3]/div/div")));
-        
-        //Navigate to the Premiere and find the name and language of the 2nd item
+
+        // Navigate to the Premiere and find the name and language of the 2nd item
         List<WebElement> nameLang = driver.findElements(
                 By.xpath("//h2[text()='Premieres']/../../../following-sibling::div//a[2]/div/div[3]/div/div"));
 
-        //Print the name and language of the 2nd item
+        // Print the name and language of the 2nd item
         for (WebElement element : nameLang) {
             System.out.println(element.getText());
         }
@@ -199,7 +196,7 @@ public class TestCases {
 
     public void testCase06() {
         System.out.println("Start Test case: testCase06");
-        
+
         driver.get("https://in.linkedin.com/ ");
 
         // Enter username and password
@@ -248,7 +245,7 @@ public class TestCases {
 
     public void testCase07() throws InterruptedException {
         System.out.println("Start Test case: testCase07");
-        
+
         driver.get("https://the-internet.herokuapp.com/nested_frames");
 
         WebElement topFrame = driver.findElement(By.name("frame-top"));
@@ -291,7 +288,7 @@ public class TestCases {
 
     public void testCase08() {
         System.out.println("Start Test case: testCase08");
-        
+
         driver.get("https://web-locators-static-site-qa.vercel.app/Alerts");
 
         driver.findElement(By.xpath("//p[text()='Add Remarks']")).click();
@@ -308,10 +305,10 @@ public class TestCases {
         System.out.println("end Test case: testCase08");
     }
 
-    //Imdb_ratings
+    // Imdb_ratings
     public void testCase09() {
         System.out.println("Start Test case: testCase09");
-        
+
         driver.get("https://www.imdb.com/chart/top/");
 
         WebElement highestRatedMovie = driver
@@ -330,11 +327,13 @@ public class TestCases {
 
         driver.findElement(By.id("swap-sort-order-button")).click();
 
-        WebElement oldestMovie = driver.findElement(By.xpath("//div[@data-testid = 'chart-layout-main-column']/ul/li[1]//h3"));
-        System.out.println("Oldest Movie "+oldestMovie.getText());
+        WebElement oldestMovie = driver
+                .findElement(By.xpath("//div[@data-testid = 'chart-layout-main-column']/ul/li[1]//h3"));
+        System.out.println("Oldest Movie " + oldestMovie.getText());
 
-        WebElement recentMovie = driver.findElement(By.xpath("//div[@data-testid = 'chart-layout-main-column']/ul/li["+count+"]//h3"));
-        System.out.println("Recent Movie "+recentMovie.getText());
+        WebElement recentMovie = driver
+                .findElement(By.xpath("//div[@data-testid = 'chart-layout-main-column']/ul/li[" + count + "]//h3"));
+        System.out.println("Recent Movie " + recentMovie.getText());
 
         sort.selectByVisibleText("Number of ratings");
 
@@ -348,7 +347,7 @@ public class TestCases {
     // Window Handles
     public void testCase10() {
         System.out.println("Start Test case: testCase10");
-        
+
         driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_open");
 
         String parentWindow = driver.getWindowHandle();
