@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 import javax.imageio.ImageIO;
 import ru.yandex.qatools.ashot.AShot;

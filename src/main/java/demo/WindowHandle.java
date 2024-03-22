@@ -2,8 +2,6 @@ package demo;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.Date;
-import java.time.Duration;
 import java.util.Set;
 
 import javax.imageio.ImageIO;
