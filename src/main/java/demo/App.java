@@ -4,9 +4,10 @@
 package demo;
 
 import java.net.MalformedURLException;
+import java.net.SocketException;
 
 public class App {
-    public void getGreeting() throws InterruptedException, MalformedURLException {
+    public void getGreeting() throws InterruptedException, MalformedURLException, SocketException {
         // TestCases tests = new TestCases(); // Initialize your test class
 
         // TODO: call your test case functions one after other here
@@ -59,12 +60,17 @@ public class App {
         // postImage.testCase01();
         // postImage.endTest();
 
-        PlayStore play = new PlayStore();
-        play.testCase01();
-        play.endTest();
+        // PlayStore play = new PlayStore();
+        // play.testCase01();
+        // play.endTest();
+
+        GoogleForms forms = new GoogleForms();
+        forms.testCase01();
+        forms.endTest();
+
     }
 
-    public static void main(String[] args) throws InterruptedException, MalformedURLException {
+    public static void main(String[] args) throws InterruptedException, MalformedURLException, SocketException {
         new App().getGreeting();
     }
 }

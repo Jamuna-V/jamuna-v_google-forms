@@ -1,5 +1,6 @@
 package demo;
 
+import java.net.SocketException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -17,14 +18,14 @@ public class AmazonSearch {
 
     public AmazonSearch() {
         System.out.println("Constructor: TestCases");
-        WebDriverManager.chromedriver().clearDriverCache().setup();
+        // WebDriverManager.chromedriver().clearDriverCache().setup();
+        System.setProperty("webdriver.chrome.driver", "D:\\Automation\\Java Projects_VSCode\\browserDrivers\\chromedriver-win64\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
 
-    public void endTest() {
+    public void endTest() throws SocketException {
         System.out.println("End Test: TestCases");
-        driver.close();
         driver.quit();
     }
 

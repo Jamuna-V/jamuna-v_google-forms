@@ -1,9 +1,11 @@
 package demo;
 
+import java.io.File;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -13,11 +15,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class PlayStore {
-    ChromeDriver driver;
+    WebDriver driver;
 
     public PlayStore() throws InterruptedException {
         System.out.println("Constructor: TestCases");
-        WebDriverManager.chromedriver().clearDriverCache().setup();
+        // WebDriverManager.chromedriver().clearDriverCache().setup();
+        System.setProperty("webdriver.chrome.driver", "D:\\Automation\\Java Projects_VSCode\\browserDrivers\\chromedriver-win64\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
