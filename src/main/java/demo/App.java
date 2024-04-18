@@ -8,66 +8,15 @@ import java.net.SocketException;
 
 public class App {
     public void getGreeting() throws InterruptedException, MalformedURLException, SocketException {
-        // TestCases tests = new TestCases(); // Initialize your test class
 
-        // TODO: call your test case functions one after other here
-
-        // tests.testCase01();
-        // tests.testCase02();
-        // tests.testCase03();
-        // tests.testCase04();
-        // tests.testCase05();
-        // tests.testCase06();
-        // tests.testCase07();
-        // tests.testCase08();
-        // tests.testCase09();
-        // tests.testCase10();
-
-        // END Tests
-
-        // tests.endTest(); // End your test by clearning connections and closing
-        // browser
-
-        // AmazonSearch search = new AmazonSearch();
-        // search.testCase01();
-        // search.endTest();
-
-        // CountHyperlinks link = new CountHyperlinks();
-        // link.testCase01();
-        // link.endTest();
-
-        // PostOnLinkedin post = new PostOnLinkedin();
-        // post.testCase01();
-        // post.endTest();
-
-        // ImageUrlsBookMyShow url = new ImageUrlsBookMyShow();
-        // url.testCase01();
-        // url.endTest();
-
-        // WindowHandle windows = new WindowHandle();
-        // windows.testCase01();
-        // windows.endTest();
-
-        // ImdbRatings movieDetails = new ImdbRatings();
-        // movieDetails.testCase01();
-        // movieDetails.endTest();
-
-        // NestedFramesText textInFrames = new NestedFramesText();
-        // textInFrames.testCase01();
-        // textInFrames.endTest();
-
-        // PostImageOrVideoOnLinkedin postImage = new PostImageOrVideoOnLinkedin();
-        // postImage.testCase01();
-        // postImage.endTest();
-
-        // PlayStore play = new PlayStore();
-        // play.testCase01();
-        // play.endTest();
-
+        // This is to remove unnecessary warnings from your console
+        System.setProperty("java.util.logging.config.file", "logging.properties");
+        // Initialize your test class
         GoogleForms forms = new GoogleForms();
+        // Call the test case function
         forms.testCase01();
+        //END Tests
         forms.endTest();
-
     }
 
     public static void main(String[] args) throws InterruptedException, MalformedURLException, SocketException {
