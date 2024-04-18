@@ -42,6 +42,9 @@ public class GoogleForms {
         String baseURL = "https://docs.google.com/forms/d/e/1FAIpQLSep9LTMntH5YqIXa5nkiPKSs283kdwitBBhXWyZdAS-e4CxBQ/viewform";
         // Navigate the URL for the form
         wrapper.navigateToURL(baseURL);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//input[@aria-labelledby='i1']"))));
 
         // Locate "Name"
         WebElement name = driver.findElement(By.xpath("//input[@aria-labelledby='i1']"));
@@ -84,7 +87,6 @@ public class GoogleForms {
         // Click the Title dropdown
         wrapper.wrap_click(dropdownTitles);
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("//div[@role='option']//span[text() = 'Mrs']")));
 
